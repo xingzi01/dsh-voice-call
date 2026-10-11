@@ -1,0 +1,11 @@
+# Normalize line endings: store LF in the repository, check out per platform.
+* text=auto
+
+# PowerShell scripts must keep CRLF on Windows.
+*.ps1 text eol=crlf
+
+# Binary assets are never touched.
+*.png binary
+*.jpg binary
+*.wav binary
+*.mp3 binary
