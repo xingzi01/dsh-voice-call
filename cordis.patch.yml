@@ -1,0 +1,26 @@
+# dsh-voice-call bundle patch
+#
+# 插入本插件自己的条目，以及它依赖的官方本地语音识别三件套：
+#   speech-to-text      —— 识别服务注册表（默认 provider 指向下面的 sensevoice）
+#   sensevoice          —— 本地 CPU 识别器（SenseVoiceSmall + Silero VAD，首次使用下载模型）
+#   api-speech-to-text  —— Host Remote 层（客户端可调）
+#   dsh-voice-call      —— 本插件（Host 半边 + 浏览器通话层）
+#
+# 官方语音输入 UI（@deepseek-ai/dsh-experimental-client-ui-voice-input）**不**在此列出：
+# 本插件的通话按钮已覆盖语音输入场景，避免同一个工具栏出现两个麦克风。
+- insert:
+    - id: speech-to-text
+      name: '@deepseek-ai/dsh-experimental-speech-to-text'
+      config:
+        defaultProvider: sensevoice-local
+    - id: speech-to-text-sensevoice
+      name: '@deepseek-ai/dsh-experimental-speech-to-text-sensevoice'
+      config:
+        # 模型缓存目录（约 229 MB，首次使用下载）。用官方的 dshHomePath() 解析到
+        # DSH 数据目录下（本机即 C:\Users\<你>\.dsh\speech-to-text\sensevoice），
+        # 任何机器装完都能直接跑，不需要手改路径。
+        dataRoot: !!js dshHomePath('speech-to-text/sensevoice')
+    - id: api-speech-to-text
+      name: '@deepseek-ai/dsh-experimental-api-speech-to-text'
+    - id: dsh-voice-call
+      name: 'dsh-voice-call'

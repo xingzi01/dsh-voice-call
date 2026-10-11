@@ -1,0 +1,49 @@
+{
+  "name": "dsh-voice-call",
+  "version": "0.1.0",
+  "description": "DSH 语音通话插件：点一下就能和 agent 说话，本地语音识别 + 助手回复边生成边朗读，支持插话打断。创作者 B 站 UID：34156344，有问题或者有 bug 私信喵。",
+  "author": "B站 UID 34156344",
+  "private": false,
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/*.js",
+    "assets/*",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "plugin",
+    "voice-call",
+    "speech-to-text",
+    "sensevoice",
+    "tts",
+    "voice"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "react"
+      ],
+      "platform": "web"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "react": "^18.3.1"
+  },
+  "license": "MIT"
+}
