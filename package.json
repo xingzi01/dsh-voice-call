@@ -45,5 +45,9 @@
     "@deepseek-ai/cordis": "^4.0.1",
     "react": "^18.3.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xingzi01/dsh-voice-call.git"
+  },
   "license": "MIT"
 }
