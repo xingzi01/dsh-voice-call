@@ -1,5 +1,7 @@
 # dsh-voice-call
 
+> 本插件由 **大肥鱼** 全程制作。
+
 DSH 的**语音通话**插件：点一下电话按钮，直接跟 agent 说话，回复边生成边念出来，可以随时插话打断。
 
 - 安装：以 link / junction 方式接入 `profiles\desktop\node_modules`，并在 profile 的 `dsh.profile.bundles` 里登记
